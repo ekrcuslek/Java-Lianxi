@@ -7,6 +7,7 @@ public class ArrayDuplicate {
         String j = new Scanner(System.in).nextLine();
         String[] line = j.split("");
         arraysDupicatecheck(line);
+        numberCount(line, 2)
     }
         // line[]를 아래 메서드에 넣음
     public static void arraysDupicatecheck(String[] line) {
@@ -26,4 +27,15 @@ public class ArrayDuplicate {
         }
 
     }
+    public static void numberCount(String[] line, int num) {
+        int count = 0;
+        String numStr = num + "";   // 숫자를 String으로 변환
+        for (String a : line) {
+            if (numStr.equals(a)) { // 특정 문자가 line[i]와 같으면 count 1증가
+                count++;
+            }
+        }
+        System.out.println("중복 개수 : " + count);
+    }
 }
+
