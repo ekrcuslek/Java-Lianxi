@@ -16,7 +16,7 @@ public class Fibonachi {
         if(x <= 1){
             return x;
         } else {
-            return fibonachi(x-2) +fibonachi(x-1);
+            return fibonachi(x-2) +fibonachi(x-1); // 3번째 숫자가 1번째 + 2번째
         }
     }
 }
