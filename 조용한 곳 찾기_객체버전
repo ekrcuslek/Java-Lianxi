@@ -1,0 +1,50 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class GongsaSite {
+    int x;
+    int y;
+    int r;
+
+    public GongsaSite(int x, int y, int r) {
+        this.x = x;
+        this.y = y;
+        this.r = r;
+    }
+}
+
+class TreeCoordinate {
+    int tree_x;
+    int tree_y;
+
+    public TreeCoordinate(int tree_x, int tree_y) {
+        this.tree_x = tree_x;
+        this.tree_y = tree_y;
+    }
+}
+
+public class Main_object_ver {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        // 공사 현장 좌표와 소음 크기를 입력 받아 인스턴스화
+        GongsaSite gongsaSite = new GongsaSite(scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
+        // 나무 갯수를 입력 받는다
+        int treeNumber = scanner.nextInt();
+        // 나무의 좌표들을 담을 리스트를 만든다
+        ArrayList<TreeCoordinate> treeXY = new ArrayList<>();
+        // 나무의 좌표를 입력 받고 인스턴스화 하여 리스트에 담는다 나무 갯수 만큼 반복
+        for (int i = 0; i < treeNumber; i++) {
+            treeXY.add(new TreeCoordinate(scanner.nextInt(), scanner.nextInt()));
+        }
+        // 나무 갯수 만큼 나무와 공사현장 간의 거리를 계산 반복
+        for (int i = 0; i < treeNumber; i++) {
+            int a = treeXY.get(i).tree_x - gongsaSite.x;
+            int b = treeXY.get(i).tree_y - gongsaSite.y;
+            if (Math.pow(a, 2) + Math.pow(b, 2) >= Math.pow(gongsaSite.r, 2)) {
+                System.out.println("Silent");
+            } else {
+                System.out.println("noisy");
+            }
+        }
+    }
+}
