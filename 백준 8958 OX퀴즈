@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int num = scanner.nextInt();  // 문제 개수
+        String[] str = new String[num];
+        for (int i = 0; i < num; i++) {  // 문제 개수 만큼 포문
+            str[i] = scanner.next(); // 문제 받아옴
+            int point = 0;    // 초기 점수 0
+            int pointSum = 0; // 총점 0
+            for (int j = 0; j < str[i].length(); j++) {
+                if (str[i].charAt(j) == 'O') { // 문자열 특정 인덱스를 불러오는 문법이 있었다..하..
+                    point++; // O가 연속적으로 나오면 point 1씩 늘어남
+                    pointSum += point; //총점은 point 추가 한 만큼
+                } else {
+                    point = 0; // O의 연속이 끝나면 포인트는 제로
+                }
+            }
+            System.out.println(pointSum);
+        }
+    }
+}
