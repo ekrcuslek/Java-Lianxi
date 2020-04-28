@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+//백준 10872
+public class Main {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		int a = scanner.nextInt();
+		int sum = a;
+		if (a >= 0 && a <= 12) {
+			for (int i = 1; i < a; i++) {
+				sum = sum * (a - i);
+			}
+		}
+		System.out.println(sum);
+	}
+}
