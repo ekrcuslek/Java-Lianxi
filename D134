@@ -1,0 +1,12 @@
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String str = scanner.next();
+        StringBuffer aaa = new StringBuffer(str);
+        if (aaa.length() > 10) {
+            aaa.insert(10,"\n");
+        }
+        System.out.println(aaa);
+
+    }
+}
