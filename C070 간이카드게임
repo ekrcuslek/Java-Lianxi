@@ -1,0 +1,40 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        ArrayList<String> list = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            list.add(scanner.next());
+        }
+        String[] numlist;
+        for (int i = 0; i < n; i++) {
+            int count = 0;
+            numlist = list.get(i).split("");
+            for (int j = 0; j < 3; j++) {
+                if (numlist[j].equals(numlist[j + 1])) {
+                    count++;
+                }
+            }
+            switch (count) {
+                case 3:
+                    System.out.println("Four Card");
+                    break;
+                case 1:
+                    System.out.println("One Pair");
+                    break;
+                case 0:
+                    System.out.println("No Pair");
+                    break;
+                case 2:
+                    if (numlist[1].equals(numlist[2])) {
+                        System.out.println("Three Pair");
+                    } else {
+                        System.out.println("Two Pair");
+                    }
+            }
+        }
+    }
+}
