@@ -1,0 +1,23 @@
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int h = scanner.nextInt();
+        int w = scanner.nextInt();
+        ArrayList<String> list = new ArrayList<>();
+        for (int i = 0; i < h; i++) {
+            StringBuilder d = new StringBuilder();
+            for (int j = 0; j < w; j++) {
+                int e = scanner.nextInt();
+                if (e <= 127) {
+                    d.append("0 ");
+                } else {
+                    d.append("1 ");
+                }
+            }
+            list.add(d.toString().trim());
+        }
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
+    }
+}
