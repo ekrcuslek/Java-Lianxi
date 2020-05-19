@@ -1,0 +1,51 @@
+package java0518;
+
+public class StrongBox<E> {
+	private E data;
+	private KeyType keyType;
+	private int count;
+
+	public enum KeyType {
+		PADLOCK, BUTTON, DIAL, FINGER
+	}
+
+	public StrongBox(KeyType keyType) {
+		this.keyType = keyType;
+	}
+
+	public void put(E data) {
+		this.data = data;
+	}
+
+	public E get() {
+		count++;
+		int limit = 0;
+		switch (keyType) {
+		case PADLOCK:
+			limit = 1024; // 얘는 상수처리 해주는 게 좋아요??
+			break;
+		case BUTTON:
+			limit = 10000;
+			break;
+		case DIAL:
+			limit = 30000;
+			break;
+		case FINGER:
+			limit = 1_000_000;
+			break;
+		default:
+			break;
+		}
+		if (count >= limit) {
+			return data;
+		} else {
+			return null;
+		}
+	}
+
+	public void test(int count) {
+		for (int i = 0; i < count; i++) {
+			System.out.println(i + " : " + this.get());
+		}
+	}
+}
